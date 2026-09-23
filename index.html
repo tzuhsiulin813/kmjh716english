@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>國中英語 7 段考實力評量｜資優班線上測驗卷</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-dark: #3a0ca3;
+      --primary-light: #4cc9f0;
+      --accent: #f72585;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg-gradient: linear-gradient(135deg, #0b1120 0%, #1e1b4b 50%, #0f172a 100%);
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.14);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --glass-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.4);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 110px;
+    }
+
+    /* 頂部固定列 */
+    header.sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 14px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .header-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title h1 {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stat-chip {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.86rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stat-chip b {
+      color: var(--primary-light);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--primary-light));
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* 主內容區 */
+    main.main-content {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+
+    /* 考生個人資料卡片 */
+    .student-info-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--glass-shadow);
+    }
+
+    .student-info-card h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .student-info-card p {
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .info-inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .input-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .input-field-group label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .input-field-group input {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 11px 16px;
+      color: #fff;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .input-field-group input:focus {
+      border-color: var(--primary-light);
+      background: rgba(0, 0, 0, 0.55);
+      box-shadow: 0 0 10px rgba(76, 201, 240, 0.25);
+    }
+
+    /* 測驗說明與配分資訊 */
+    .exam-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(67, 97, 238, 0.12);
+      border: 1px solid rgba(67, 97, 238, 0.3);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    .score-alloc-pill {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 4px 12px;
+      border-radius: 999px;
+      color: #fde047;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+
+    /* 大題分頁導覽 */
+    .section-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .section-tab {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      padding: 10px 20px;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .section-tab:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .section-tab.active {
+      background: var(--primary);
+      border-color: var(--primary-light);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+    }
+
+    .tab-badge {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+    }
+
+    /* 題目區塊 */
+    .section-wrapper {
+      display: none;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    .section-wrapper.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .question-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .question-card:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* 批改後標記樣式 */
+    .question-card.graded-correct {
+      border-left: 6px solid var(--success) !important;
+      background: rgba(16, 185, 129, 0.06);
+    }
+
+    .question-card.graded-wrong {
+      border-left: 6px solid var(--danger) !important;
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .q-num-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary-light);
+    }
+
+    .q-points {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+    }
+
+    .q-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-grade-tag {
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: none;
+    }
+
+    .graded-correct .q-grade-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      border: 1px solid var(--success);
+    }
+
+    .graded-wrong .q-grade-tag {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.25);
+      color: #f87171;
+      border: 1px solid var(--danger);
+    }
+
+    .tts-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      color: var(--text-sub);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tts-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.08);
+    }
+
+    .q-text {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .blank-line {
+      display: inline-block;
+      min-width: 80px;
+      border-bottom: 2px solid var(--primary-light);
+      margin: 0 4px;
+      text-align: center;
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+
+    /* 拼字填空 */
+    .spelling-box {
+      margin-bottom: 6px;
+    }
+
+    .spell-input {
+      width: 100%;
+      max-width: 360px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .spell-input:focus {
+      border-color: var(--primary-light);
+      background: rgba(0, 0, 0, 0.55);
+      box-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+    }
+
+    .spell-input:disabled {
+      opacity: 0.85;
+      cursor: not-allowed;
+    }
+
+    /* 選擇題選項 */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      color: var(--text-main);
+      font-size: 0.98rem;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .option-btn.selected {
+      background: rgba(67, 97, 238, 0.3);
+      border-color: var(--primary-light);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .option-btn.correct-highlight {
+      background: rgba(16, 185, 129, 0.25) !important;
+      border-color: var(--success) !important;
+      color: #34d399 !important;
+      font-weight: 800;
+    }
+
+    .option-btn.wrong-highlight {
+      background: rgba(239, 68, 68, 0.25) !important;
+      border-color: var(--danger) !important;
+      color: #fca5a5 !important;
+    }
+
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected .option-letter {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* 批改後解析區塊（未送出前完全隱藏） */
+    .post-exam-review {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      display: none;
+    }
+
+    .post-exam-review.show {
+      display: block;
+    }
+
+    .review-user-ans {
+      margin-bottom: 6px;
+    }
+
+    .review-correct-ans {
+      color: #38bdf8;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .review-explanation {
+      background: rgba(0, 0, 0, 0.28);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary);
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+
+    .review-elite-note {
+      color: #fde047;
+      font-size: 0.86rem;
+      margin-top: 4px;
+    }
+
+    /* 底部工具列 */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 17, 32, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--card-border);
+      padding: 14px 24px;
+      z-index: 99;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .action-btn {
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: white;
+      box-shadow: 0 4px 15px rgba(247, 37, 133, 0.4);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(247, 37, 133, 0.6);
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-print {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    /* 成績診斷結果區 (交卷後出現在最上方) */
+    .score-report-card {
+      display: none;
+      background: linear-gradient(135deg, rgba(67, 97, 238, 0.22), rgba(247, 37, 133, 0.18));
+      border: 2px solid var(--primary-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--glass-shadow);
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .score-report-card.show {
+      display: block;
+    }
+
+    .report-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+    }
+
+    .student-badge-info {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .student-badge-info span {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 8px;
+      margin-right: 8px;
+      color: var(--primary-light);
+    }
+
+    .report-body {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .score-big-display {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 24px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .score-big-display .score-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #4cc9f0, #f72585);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .score-big-display .score-max {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .score-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .stat-box .val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .stat-box .lbl {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    /* 錯題清單匯總區 */
+    .wrong-questions-summary {
+      margin-top: 24px;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .wrong-questions-summary h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fca5a5;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wrong-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .wrong-item-row {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.92rem;
+    }
+
+    .wrong-item-row .w-title {
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .wrong-item-row .w-details {
+      display: flex;
+      gap: 20px;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .wrong-item-row .w-details .user-bad {
+      color: #f87171;
+    }
+
+    .wrong-item-row .w-details .correct-good {
+      color: #34d399;
+      font-weight: 700;
+    }
+
+    .wrong-item-row .w-tip {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* 列印樣式優化 */
+    @media print {
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        padding-bottom: 0;
+      }
+      header.sticky-header, .bottom-bar, .tts-btn, .section-nav {
+        display: none !important;
+      }
+      .section-wrapper {
+        display: block !important;
+      }
+      .score-report-card {
+        border: 2px solid #000 !important;
+        background: #f8fafc !important;
+        color: #000 !important;
+        box-shadow: none !important;
+      }
+      .score-big-display .score-num {
+        -webkit-text-fill-color: #000 !important;
+      }
+      .student-badge-info span {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background: none !important;
+      }
+      .question-card {
+        background: #fff !important;
+        border: 1px solid #ccc !important;
+        color: #000 !important;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        margin-bottom: 14px;
+      }
+      .q-text, .student-info-card h2, .student-info-card label {
+        color: #000 !important;
+      }
+      .option-btn {
+        background: #fff !important;
+        border: 1px solid #999 !important;
+        color: #000 !important;
+      }
+      .post-exam-review {
+        display: block !important;
+        color: #333 !important;
+      }
+      .wrong-questions-summary {
+        background: #fff !important;
+        border: 1px solid #d00 !important;
+        color: #000 !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .report-body {
+        grid-template-columns: 1fr;
+      }
+      .score-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部固定列 -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="brand-title">
+        <span class="brand-badge">正式測驗</span>
+        <h1>國中英語 7 段考實力評量 (資優評量卷)</h1>
+      </div>
+      <div class="header-actions">
+        <div class="stat-chip">
+          ⏱️ 測驗時間：<span id="timerDisplay">00:00</span>
+        </div>
+        <div class="stat-chip">
+          作答進度：<b id="progressCount">0</b> / 30 題
+        </div>
+      </div>
+    </div>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill" id="progressBar"></div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- 考生基本資料卡片 -->
+    <div class="student-info-card" id="studentCard">
+      <h2>📝 考生身分確認</h2>
+      <p>請務必確實填寫班級、座號與姓名，繳卷後將自動完成全卷批改並生成個人專屬成績單與錯題診斷。</p>
+      <div class="info-inputs-grid">
+        <div class="input-field-group">
+          <label for="studentClass">🏫 班級 (Class) *</label>
+          <input type="text" id="studentClass" placeholder="例：701 或 國一資優班" autocomplete="off">
+        </div>
+        <div class="input-field-group">
+          <label for="studentSeat">🔢 座號 (Seat No.) *</label>
+          <input type="text" id="studentSeat" placeholder="例：05" autocomplete="off">
+        </div>
+        <div class="input-field-group">
+          <label for="studentName">👤 姓名 (Name) *</label>
+          <input type="text" id="studentName" placeholder="請輸入全名" autocomplete="off">
+        </div>
+      </div>
+    </div>
+
+    <!-- 測驗成績與錯題診斷報告區 (交卷後自動展開) -->
+    <div class="score-report-card" id="scoreReportCard">
+      <div class="report-header">
+        <div class="student-badge-info">
+          <span id="repClass">--</span>
+          <span id="repSeat">--</span>
+          <span id="repName">--</span>
+          <span style="color:#f72585; border-color:#f72585;">評量結果已批改完畢</span>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-sub);" id="repTimestamp">
+          測驗時間：2026-09-23
+        </div>
+      </div>
+
+      <div class="report-body">
+        <div class="score-big-display">
+          <div class="score-num" id="repScore">0</div>
+          <div class="score-max">總分 100 分</div>
+        </div>
+        <div class="score-stats-grid">
+          <div class="stat-box">
+            <div class="val" id="repAccuracy">0%</div>
+            <div class="lbl">答對率</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="repCorrectCount">0 / 30</div>
+            <div class="lbl">答對題數</div>
+          </div>
+          <div class="stat-box">
+            <div class="val" id="repDuration">00:00</div>
+            <div class="lbl">作答總耗時</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 錯題清單匯總 -->
+      <div class="wrong-questions-summary" id="wrongSummaryBox">
+        <h3 id="wrongSummaryTitle">❌ 考生回答錯誤之題目診斷清單</h3>
+        <div class="wrong-items-list" id="wrongItemsList">
+          <!-- 動態注入錯題 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 試卷配分規則說明 -->
+    <div class="exam-meta-bar">
+      <div>
+        <b>全卷題數：</b>共 30 題 ｜ <b>總分：</b>100 分整
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span class="score-alloc-pill">一、文意字彙 (8題)：每題 3 分</span>
+        <span class="score-alloc-pill">二、字彙選擇 (7題)：每題 4 分</span>
+        <span class="score-alloc-pill">三、語法測驗 (15題)：1~12題各3分，13~15題各4分</span>
+      </div>
+    </div>
+
+    <!-- 大題切換 Tab -->
+    <nav class="section-nav">
+      <button class="section-tab active" onclick="switchSection('sec1')">
+        一、文意字彙 (1~8 題)
+        <span class="tab-badge" id="badgeSec1">0/8</span>
+      </button>
+      <button class="section-tab" onclick="switchSection('sec2')">
+        二、字彙選擇 (1~7 題)
+        <span class="tab-badge" id="badgeSec2">0/7</span>
+      </button>
+      <button class="section-tab" onclick="switchSection('sec3')">
+        三、語法測驗 (1~15 題)
+        <span class="tab-badge" id="badgeSec3">0/15</span>
+      </button>
+    </nav>
+
+    <!-- 一、文意字彙 -->
+    <section class="section-wrapper active" id="sec1"></section>
+
+    <!-- 二、字彙選擇 -->
+    <section class="section-wrapper" id="sec2"></section>
+
+    <!-- 三、語法測驗 -->
+    <section class="section-wrapper" id="sec3"></section>
+
+  </main>
+
+  <!-- 底部固定按鈕列 -->
+  <div class="bottom-bar">
+    <button class="action-btn btn-submit" id="btnSubmitExam" onclick="submitExam()">
+      📤 提交考卷並立即自動批改
+    </button>
+    <button class="action-btn btn-print" onclick="window.print()">
+      🖨️ 列印考卷 / 成績報告
+    </button>
+    <button class="action-btn btn-reset" onclick="resetQuiz()">
+      🔄 重新測驗
+    </button>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       題目與嚴謹配分資料 (總分剛好 100 分，無任何做題提示)
+       - 第一大題：8 題 × 3 分 = 24 分
+       - 第二大題：7 題 × 4 分 = 28 分
+       - 第三大題：前 12 題 × 3 分 (36分) + 後 3 題 × 4 分 (12分) = 48 分
+       - 總計：24 + 28 + 48 = 100 分整
+       ========================================================================== */
+    const quizData = {
+      section1: [
+        {
+          id: "s1_q1",
+          sec: 1,
+          num: 1,
+          type: "spelling",
+          points: 3,
+          text: "1. S_____es are farmers' good friends. They eat rats.",
+          answer: "Snakes",
+          accepted: ["snakes", "snake"],
+          explanation: "農夫的好朋友且會吃老鼠 (eat rats)，主詞動詞為 are，故填複數名詞 Snakes（蛇）。",
+          eliteTip: "名詞字尾為 -e 者複數直接加 -s。本題已給 S_____es，學生填寫完整字彙 Snakes。"
+        },
+        {
+          id: "s1_q2",
+          sec: 1,
+          num: 2,
+          type: "spelling",
+          points: 3,
+          text: "2. Lily is s_____t. She's a math teacher in my son's school.",
+          answer: "smart",
+          accepted: ["smart"],
+          explanation: "Lily 是學校的數學老師，形容她很聰明 (smart)。",
+          eliteTip: "smart (聰明的) = clever / intelligent。"
+        },
+        {
+          id: "s1_q3",
+          sec: 1,
+          num: 3,
+          type: "spelling",
+          points: 3,
+          text: "3. Jerry Robinson is our new English teacher. His C_____e name is 羅傑瑞.",
+          answer: "Chinese",
+          accepted: ["chinese"],
+          explanation: "羅傑瑞是他的中文名字 (Chinese name)。",
+          eliteTip: "語言及國籍形容詞字首務必大寫（Chinese, English）。"
+        },
+        {
+          id: "s1_q4",
+          sec: 1,
+          num: 4,
+          type: "spelling",
+          points: 3,
+          text: "4. My animal s_____n is the dragon. My father's birth year is 1976. He's a dragon, too.",
+          answer: "sign",
+          accepted: ["sign"],
+          explanation: "animal sign 指「生肖」（或 Chinese zodiac sign）。",
+          eliteTip: "問生肖句型：What is your animal sign?"
+        },
+        {
+          id: "s1_q5",
+          sec: 1,
+          num: 5,
+          type: "spelling",
+          points: 3,
+          text: "5. “Daniel” and “Danielle” are two d_____t names. “Daniel” is a name for men, and “Danielle” is a name for women.",
+          answer: "different",
+          accepted: ["different"],
+          explanation: "男生名字與女生名字是不同的 (different)。",
+          eliteTip: "片語搭配：be different from...（與……不同）。"
+        },
+        {
+          id: "s1_q6",
+          sec: 1,
+          num: 6,
+          type: "spelling",
+          points: 3,
+          text: "6. A: How's the new movie t_____r? B: It's great. Its screen ( 銀幕 ) is big.",
+          answer: "theater",
+          accepted: ["theater", "theatre"],
+          explanation: "詢問新電影院 (movie theater)，回答其銀幕很大。",
+          eliteTip: "美式拼寫 theater，英式拼寫 theatre 皆計為正確。"
+        },
+        {
+          id: "s1_q7",
+          sec: 1,
+          num: 7,
+          type: "spelling",
+          points: 3,
+          text: "7. A: Is that a r_____r? B: No, it's a hen ( 母雞 ). They are not the same.",
+          answer: "rooster",
+          accepted: ["rooster"],
+          explanation: "與母雞 (hen) 相對的公雞為 rooster。",
+          eliteTip: "家禽單字：rooster (公雞)、hen (母雞)、chick (小雞)。"
+        },
+        {
+          id: "s1_q8",
+          sec: 1,
+          num: 8,
+          type: "spelling",
+          points: 3,
+          text: "8. A: Are these apples for your pet? B: No. They're not for my dog. They're for the p_____e in my family.",
+          answer: "people",
+          accepted: ["people"],
+          explanation: "蘋果不是給寵物狗，是給家裡的「人 (people)」。",
+          eliteTip: "people 為集合名詞，當「人們」時恆用複數動詞。"
+        }
+      ],
+      section2: [
+        {
+          id: "s2_q1",
+          sec: 2,
+          num: 1,
+          type: "choice",
+          points: 4,
+          text: "1. An elephant is a(n) ______, but an orange is not.",
+          options: ["movie", "person", "animal", "picture"],
+          answer: "C",
+          explanation: "大象是一隻動物 (animal)，而柳橙不是。",
+          eliteTip: "animal 以母音開頭，前方不定冠詞使用 an。"
+        },
+        {
+          id: "s2_q2",
+          sec: 2,
+          num: 2,
+          type: "choice",
+          points: 4,
+          text: "2. The ______ is cute. Its ears are long, and its eyes are red.",
+          options: ["rat", "fox", "snake", "rabbit"],
+          answer: "D",
+          explanation: "耳朵長且眼睛紅的動物是兔子 (rabbit)。",
+          eliteTip: "rabbit 的生物特徵：long ears, red eyes。"
+        },
+        {
+          id: "s2_q3",
+          sec: 2,
+          num: 3,
+          type: "choice",
+          points: 4,
+          text: "3. Cindy's grandparents are 80 years old, but they're very ______. They dance every day ( 每天 ).",
+          options: ["true", "smart", "same", "energetic"],
+          answer: "D",
+          explanation: "80 歲依然每天跳舞，表示非常精力充沛、充滿活力 (energetic)。",
+          eliteTip: "energy (名詞：活力) -> energetic (形容詞：有活力的)。"
+        },
+        {
+          id: "s2_q4",
+          sec: 2,
+          num: 4,
+          type: "choice",
+          points: 4,
+          text: "4. A: What's your ______? B: Small. This T-shirt is too big.",
+          options: ["size", "meter", "mouse", "lifespan"],
+          answer: "A",
+          explanation: "回答 Small (S 號)，問句是詢問尺寸大小 (size)。",
+          eliteTip: "衣服尺寸：S (Small), M (Medium), L (Large)。"
+        },
+        {
+          id: "s2_q5",
+          sec: 2,
+          num: 5,
+          type: "choice",
+          points: 4,
+          text: "5. A: Is it a horse? B: No, it's a ______. It is a horse in black and white.",
+          options: ["bear", "zebra", "sheep", "monkey"],
+          answer: "B",
+          explanation: "黑白相間的馬是斑馬 (zebra)。",
+          eliteTip: "a horse in black and white = 斑馬 (zebra)。"
+        },
+        {
+          id: "s2_q6",
+          sec: 2,
+          num: 6,
+          type: "choice",
+          points: 4,
+          text: "6. A: Is the ______ a Chinese zodiac animal sign? B: No, it isn't.",
+          options: ["ox", "lion", "goat", "dragon"],
+          answer: "B",
+          explanation: "十二生肖中沒有獅子 (lion)。ox (牛)、goat (羊)、dragon (龍) 皆屬生肖。",
+          eliteTip: "十二生肖動物無 lion。"
+        },
+        {
+          id: "s2_q7",
+          sec: 2,
+          num: 7,
+          type: "choice",
+          points: 4,
+          text: "7. A: This is a nice ______. Your wife is beautiful in it. B: Thank you.",
+          options: ["tiger", "rooster", "picture", "lifespan"],
+          answer: "C",
+          explanation: "in it 指在照片中，這是一張很棒的照片 (picture)。",
+          eliteTip: "look beautiful in a picture 意指在相片中很漂亮、很上鏡。"
+        }
+      ],
+      section3: [
+        {
+          id: "s3_q1",
+          sec: 3,
+          num: 1,
+          type: "choice",
+          points: 3,
+          text: "1. The small box is those ______ home. It is beautiful.",
+          options: ["mice", "mice's", "mouse", "mouse's"],
+          answer: "B",
+          explanation: "those 修飾複數名詞 mice；不規則複數所有格加 's，故為 mice's。",
+          eliteTip: "不規則複數（非 s 結尾）所有格一律加 's：mice's, men's, children's。"
+        },
+        {
+          id: "s3_q2",
+          sec: 3,
+          num: 2,
+          type: "choice",
+          points: 3,
+          text: "2. This is a ______ school. May and Tina are students in it.",
+          options: ["girl", "girls", "girl's", "girls'"],
+          answer: "D",
+          explanation: "girls 字尾已為 s，其複數所有格直接加撇號 '，寫作 girls' school (女校)。",
+          eliteTip: "規則複數以 s 結尾者，所有格只加撇號 '。"
+        },
+        {
+          id: "s3_q3",
+          sec: 3,
+          num: 3,
+          type: "choice",
+          points: 3,
+          text: "3. My aunt and uncle are thin. ______ daughter is thin, too.",
+          options: ["They", "Their", "They're", "Their are"],
+          answer: "B",
+          explanation: "修飾名詞 daughter 需使用所有格形容詞 Their（他們的）。",
+          eliteTip: "注意區分：Their (所有格) 與 They're (They are 縮寫)。"
+        },
+        {
+          id: "s3_q4",
+          sec: 3,
+          num: 4,
+          type: "choice",
+          points: 3,
+          text: "4. Those ______ are beautiful. Their colors are red and yellow.",
+          options: ["ox", "fox", "fish", "mouse"],
+          answer: "C",
+          explanation: "Those 接複數名詞。ox 複數為 oxen，fox 複數為 foxes，mouse 複數為 mice；只有 fish 為單複數同形，Those fish 合乎文法！",
+          eliteTip: "常考單複數同形名詞：fish, sheep, deer。"
+        },
+        {
+          id: "s3_q5",
+          sec: 3,
+          num: 5,
+          type: "choice",
+          points: 3,
+          text: "5. Those are ______ math books. This is ______ English book.",
+          options: ["an; an", "an; ✕", "✕; an", "✕; ✕"],
+          answer: "C",
+          explanation: "複數名詞 math books 不加 a/an；English book 為單數且 English 以母音開頭加 an。",
+          eliteTip: "不定冠詞 a/an 僅用於修飾單數可數名詞。"
+        },
+        {
+          id: "s3_q6",
+          sec: 3,
+          num: 6,
+          type: "choice",
+          points: 3,
+          text: "6. JoJo the dog and Lucy the lion are not the same size, ______ they are good friends.",
+          options: ["and", "but", "or", "✕"],
+          answer: "B",
+          explanation: "前半句體型不同，後半句感情很好，語意呈現轉折對比，連接詞用 but（但是）。",
+          eliteTip: "對等連接詞：but 表轉折。"
+        },
+        {
+          id: "s3_q7",
+          sec: 3,
+          num: 7,
+          type: "choice",
+          points: 3,
+          text: "7. A: ______ is this? B: This is a fox.",
+          options: ["How", "Who", "What", "Where"],
+          answer: "C",
+          explanation: "回答事物名稱 (This is a fox.)，問句使用疑問代名詞 What（什麼）。",
+          eliteTip: "What is this? 詢問事物名稱。"
+        },
+        {
+          id: "s3_q8",
+          sec: 3,
+          num: 8,
+          type: "choice",
+          points: 3,
+          text: "8. A: Are those beautiful girls your sisters? B: No, ______.",
+          options: ["those not", "those are", "they are not", "these are not"],
+          answer: "C",
+          explanation: "簡答句必須以人稱代名詞 they 代替 those beautiful girls；否定簡答為 No, they are not.。",
+          eliteTip: "簡答句不可使用 this/that/these/those，須代換為 it 或 they。"
+        },
+        {
+          id: "s3_q9",
+          sec: 3,
+          num: 9,
+          type: "choice",
+          points: 3,
+          text: "9. A: Are you a teacher? B: Yes, and those ______ my students.",
+          options: ["boy", "boys", "boy is", "boys are"],
+          answer: "D",
+          explanation: "those 修飾複數名詞 boys，主詞 those boys 為複數，be 動詞使用 are。",
+          eliteTip: "主謂一致：those + 複數名詞 + are。"
+        },
+        {
+          id: "s3_q10",
+          sec: 3,
+          num: 10,
+          type: "choice",
+          points: 3,
+          text: "10. A: What's these ______ birth year? B: Their birth year is 2000.",
+          options: ["men", "man's", "men's", "mans'"],
+          answer: "C",
+          explanation: "these 接複數名詞 men；不規則複數所有格加 's，故為 men's。",
+          eliteTip: "man 複數為 men，絕無 mans 這個字。"
+        },
+        {
+          id: "s3_q11",
+          sec: 3,
+          num: 11,
+          type: "choice",
+          points: 3,
+          text: "11. A: My brother is tall. ______ your brother? B: He is tall, too.",
+          options: ["How", "What", "Where", "What about"],
+          answer: "D",
+          explanation: "「What about + 名詞?」用來詢問「那……呢？」，引導對稱問句。",
+          eliteTip: "What about your brother? = How about your brother?"
+        },
+        {
+          id: "s3_q12",
+          sec: 3,
+          num: 12,
+          type: "choice",
+          points: 3,
+          text: "12. A: Are ______ boys your friends? B: Yes. They are my friends.",
+          options: ["this", "that", "they", "these"],
+          answer: "D",
+          explanation: "修飾複數名詞 boys 的指示形容詞應使用 these（這些）。they 為代名詞不能修飾名詞。",
+          eliteTip: "指示形容詞：these/those + 複數名詞。"
+        },
+        {
+          id: "s3_q13",
+          sec: 3,
+          num: 13,
+          type: "choice",
+          points: 4,
+          text: "13. A: What is ______? B: It is an old watch. It is from my grandfather.",
+          options: ["it", "they", "these", "those"],
+          answer: "A",
+          explanation: "問句動詞為單數 is，答句代名詞為 It，故代名詞選單數 it。",
+          eliteTip: "What is it? 對應 It is..."
+        },
+        {
+          id: "s3_q14",
+          sec: 3,
+          num: 14,
+          type: "choice",
+          points: 4,
+          text: "14. A: Are these horses your pets? B: No, they ______. They are my uncle's pets.",
+          options: ["is", "isn't", "are", "aren't"],
+          answer: "D",
+          explanation: "否定簡答格式為 No, they aren't. (are not)。",
+          eliteTip: "主詞 they 搭配 be 動詞 are，否定句使用 aren't。"
+        },
+        {
+          id: "s3_q15",
+          sec: 3,
+          num: 15,
+          type: "choice",
+          points: 4,
+          text: "15. A: Are ______ Mr. Wu's daughters? B: Not really. Susan is Mr. Wu's daughter, ______ Judy is not.",
+          options: ["you; but", "they; but", "you; and", "they; ✕"],
+          answer: "B",
+          explanation: "第一空詢問那些女孩她們是否為吳先生的女兒用 they；第二空一肯一否轉折對比用 but。",
+          eliteTip: "Not really 提示後句對比：Susan is..., but Judy is not."
+        }
+      ]
+    };
+
+    /* ==========================================================================
+       狀態管理
+       ========================================================================== */
+    let userAnswers = {}; // { qId: answerString }
+    let isGraded = false; // 是否已完成批改
+    let timerSeconds = 0;
+    let timerInterval = null;
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAllSections();
+      updateProgress();
+      startTimer();
+    });
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        if (!isGraded) {
+          timerSeconds++;
+          const mins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+          const secs = String(timerSeconds % 60).padStart(2, '0');
+          document.getElementById('timerDisplay').innerText = `${mins}:${secs}`;
+        }
+      }, 1000);
+    }
+
+    function switchSection(secId) {
+      document.querySelectorAll('.section-tab').forEach((tab, idx) => {
+        tab.classList.toggle('active', (idx + 1) === parseInt(secId.replace('sec', '')));
+      });
+      document.querySelectorAll('.section-wrapper').forEach(wrapper => {
+        wrapper.classList.toggle('active', wrapper.id === secId);
+      });
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    function renderAllSections() {
+      renderSec1();
+      renderSec2();
+      renderSec3();
+    }
+
+    // 渲染第一大題：文意字彙 (無任何提示線索)
+    function renderSec1() {
+      const container = document.getElementById('sec1');
+      container.innerHTML = quizData.section1.map(q => {
+        const val = userAnswers[q.id] || '';
+        return `
+          <div class="question-card" id="card_${q.id}">
+            <div class="q-header">
+              <div class="q-num-box">
+                <span class="q-num">第 ${q.num} 題</span>
+                <span class="q-points">${q.points} 分</span>
+              </div>
+              <div class="q-tools">
+                <span class="q-grade-tag" id="tag_${q.id}">-</span>
+                <button class="tts-btn" title="朗讀題目" onclick="speakText('${escapeSpeech(q.text)}')">🔊</button>
+              </div>
+            </div>
+            <div class="q-text">${highlightBlank(q.text)}</div>
+            <div class="spelling-box">
+              <input type="text" class="spell-input" id="input_${q.id}" 
+                placeholder="請輸入答案單字..." 
+                value="${val}" 
+                ${isGraded ? 'disabled' : ''}
+                oninput="recordAnswer('${q.id}', this.value)">
+            </div>
+            <!-- 批改後解析 -->
+            <div class="post-exam-review" id="review_${q.id}">
+              <div class="review-user-ans">作答紀錄：<b id="rec_${q.id}">--</b></div>
+              <div class="review-correct-ans">🎯 正確答案：${q.answer}</div>
+              <div class="review-explanation"><b>題目解析：</b>${q.explanation}</div>
+              <div class="review-elite-note">💡 ${q.eliteTip}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 渲染第二、三大題：選擇題 (無提示)
+    function renderSec2() {
+      const container = document.getElementById('sec2');
+      container.innerHTML = quizData.section2.map(q => renderChoiceCard(q)).join('');
+    }
+
+    function renderSec3() {
+      const container = document.getElementById('sec3');
+      container.innerHTML = quizData.section3.map(q => renderChoiceCard(q)).join('');
+    }
+
+    function renderChoiceCard(q) {
+      const letters = ['A', 'B', 'C', 'D'];
+      const chosen = userAnswers[q.id] || null;
+
+      const optsHtml = q.options.map((opt, idx) => {
+        const l = letters[idx];
+        const isSelected = (chosen === l);
+        return `
+          <button class="option-btn ${isSelected ? 'selected' : ''}" 
+            id="opt_${q.id}_${l}"
+            ${isGraded ? 'disabled' : ''}
+            onclick="selectChoice('${q.id}', '${l}')">
+            <span class="option-letter">${l}</span>
+            <span>${opt}</span>
+          </button>
+        `;
+      }).join('');
+
+      return `
+        <div class="question-card" id="card_${q.id}">
+          <div class="q-header">
+            <div class="q-num-box">
+              <span class="q-num">第 ${q.num} 題</span>
+              <span class="q-points">${q.points} 分</span>
+            </div>
+            <div class="q-tools">
+              <span class="q-grade-tag" id="tag_${q.id}">-</span>
+              <button class="tts-btn" title="朗讀題目" onclick="speakText('${escapeSpeech(q.text)}')">🔊</button>
+            </div>
+          </div>
+          <div class="q-text">${highlightBlank(q.text)}</div>
+          <div class="options-grid">
+            ${optsHtml}
+          </div>
+          <!-- 批改後解析 -->
+          <div class="post-exam-review" id="review_${q.id}">
+            <div class="review-user-ans">作答紀錄：<b id="rec_${q.id}">--</b></div>
+            <div class="review-correct-ans">🎯 正確答案：(${q.answer}) ${q.options[letters.indexOf(q.answer)]}</div>
+            <div class="review-explanation"><b>題目解析：</b>${q.explanation}</div>
+            <div class="review-elite-note">💡 ${q.eliteTip}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function highlightBlank(str) {
+      return str.replace(/_{3,}/g, '<span class="blank-line">______</span>');
+    }
+
+    function escapeSpeech(text) {
+      return text.replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/_{3,}/g, 'blank');
+    }
+
+    // 紀錄作答
+    function recordAnswer(qId, val) {
+      if (isGraded) return;
+      userAnswers[qId] = val.trim();
+      updateProgress();
+    }
+
+    function selectChoice(qId, letter) {
+      if (isGraded) return;
+      userAnswers[qId] = letter;
+
+      // 更新選項外觀
+      const letters = ['A', 'B', 'C', 'D'];
+      letters.forEach(l => {
+        const btn = document.getElementById(`opt_${qId}_${l}`);
+        if (btn) btn.classList.toggle('selected', l === letter);
+      });
+
+      updateProgress();
+    }
+
+    // 更新做題計數
+    function updateProgress() {
+      const allQ = [...quizData.section1, ...quizData.section2, ...quizData.section3];
+      const total = allQ.length;
+      let done = 0;
+      let s1 = 0, s2 = 0, s3 = 0;
+
+      quizData.section1.forEach(q => {
+        if (userAnswers[q.id] && userAnswers[q.id].length > 0) {
+          done++; s1++;
+        }
+      });
+      quizData.section2.forEach(q => {
+        if (userAnswers[q.id]) {
+          done++; s2++;
+        }
+      });
+      quizData.section3.forEach(q => {
+        if (userAnswers[q.id]) {
+          done++; s3++;
+        }
+      });
+
+      document.getElementById('progressCount').innerText = done;
+      document.getElementById('progressBar').style.width = `${(done / total) * 100}%`;
+
+      document.getElementById('badgeSec1').innerText = `${s1}/${quizData.section1.length}`;
+      document.getElementById('badgeSec2').innerText = `${s2}/${quizData.section2.length}`;
+      document.getElementById('badgeSec3').innerText = `${s3}/${quizData.section3.length}`;
+    }
+
+    // 英語朗讀
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const clean = text.replace(/^[0-9]+\.\s*/, '').replace(/_{2,}/g, 'blank').replace(/[()（）]/g, '');
+      const utt = new SpeechSynthesisUtterance(clean);
+      utt.lang = 'en-US';
+      utt.rate = 0.9;
+      window.speechSynthesis.speak(utt);
+    }
+
+    /* ==========================================================================
+       送卷與自動批改
+       ========================================================================== */
+    function submitExam() {
+      const sClass = document.getElementById('studentClass').value.trim();
+      const sSeat = document.getElementById('studentSeat').value.trim();
+      const sName = document.getElementById('studentName').value.trim();
+
+      // 檢查班級姓名座號
+      if (!sClass || !sSeat || !sName) {
+        alert("⚠️ 請先在最上方確實填寫【班級】、【座號】與【姓名】再繳交考卷喔！");
+        document.getElementById('studentCard').scrollIntoView({ behavior: 'smooth' });
+        if (!sClass) document.getElementById('studentClass').focus();
+        else if (!sSeat) document.getElementById('studentSeat').focus();
+        else document.getElementById('studentName').focus();
+        return;
+      }
+
+      // 檢查未作答題數
+      const allQ = [...quizData.section1, ...quizData.section2, ...quizData.section3];
+      const unanswered = allQ.filter(q => !userAnswers[q.id] || userAnswers[q.id].length === 0);
+      if (unanswered.length > 0) {
+        const proceed = confirm(`⚠️ 您還有 ${unanswered.length} 題尚未作答！確定現在就要送卷批改嗎？`);
+        if (!proceed) return;
+      }
+
+      isGraded = true;
+      clearInterval(timerInterval);
+
+      // 開始核對與批改
+      let totalScore = 0;
+      let correctCount = 0;
+      let wrongList = [];
+
+      allQ.forEach(q => {
+        const uAns = userAnswers[q.id] || '';
+        let isCorrect = false;
+
+        if (q.type === 'spelling') {
+          isCorrect = q.accepted.includes(uAns.toLowerCase());
+        } else {
+          isCorrect = (uAns === q.answer);
+        }
+
+        const card = document.getElementById(`card_${q.id}`);
+        const tag = document.getElementById(`tag_${q.id}`);
+        const review = document.getElementById(`review_${q.id}`);
+        const rec = document.getElementById(`rec_${q.id}`);
+
+        // 標記該題狀態
+        card.classList.remove('graded-correct', 'graded-wrong');
+        card.classList.add(isCorrect ? 'graded-correct' : 'graded-wrong');
+
+        if (isCorrect) {
+          totalScore += q.points;
+          correctCount++;
+          tag.innerText = `✅ 正確 (+${q.points}分)`;
+        } else {
+          tag.innerText = `❌ 錯誤 (0分)`;
+          wrongList.push({
+            q: q,
+            userAns: uAns
+          });
+        }
+
+        // 顯示作答紀錄
+        if (q.type === 'spelling') {
+          rec.innerText = uAns ? uAns : '（未作答）';
+          rec.style.color = isCorrect ? '#34d399' : '#f87171';
+        } else {
+          rec.innerText = uAns ? `${uAns}` : '（未作答）';
+          rec.style.color = isCorrect ? '#34d399' : '#f87171';
+
+          // 選項顏色高亮
+          const letters = ['A', 'B', 'C', 'D'];
+          letters.forEach(l => {
+            const btn = document.getElementById(`opt_${q.id}_${l}`);
+            if (btn) {
+              btn.disabled = true;
+              if (l === q.answer) btn.classList.add('correct-highlight');
+              else if (l === uAns && !isCorrect) btn.classList.add('wrong-highlight');
+            }
+          });
+        }
+
+        // 展開解析
+        review.classList.add('show');
+      });
+
+      // 禁用輸入框與提交按鈕
+      document.querySelectorAll('.spell-input').forEach(inp => inp.disabled = true);
+      document.getElementById('btnSubmitExam').style.display = 'none';
+
+      // 渲染頂部成績報告
+      const durationMins = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
+      const durationSecs = String(timerSeconds % 60).padStart(2, '0');
+
+      document.getElementById('repClass').innerText = `班級：${sClass}`;
+      document.getElementById('repSeat').innerText = `座號：${sSeat} 號`;
+      document.getElementById('repName').innerText = `姓名：${sName}`;
+      document.getElementById('repTimestamp').innerText = `交卷時間：${new Date().toLocaleString('zh-TW', { hour12: false })}`;
+
+      document.getElementById('repScore').innerText = totalScore;
+      document.getElementById('repAccuracy').innerText = `${Math.round((correctCount / allQ.length) * 100)}%`;
+      document.getElementById('repCorrectCount').innerText = `${correctCount} / ${allQ.length}`;
+      document.getElementById('repDuration').innerText = `${durationMins}:${durationSecs}`;
+
+      // 渲染錯題清單匯總
+      const wrongListEl = document.getElementById('wrongItemsList');
+      wrongListEl.innerHTML = '';
+
+      if (wrongList.length === 0) {
+        document.getElementById('wrongSummaryTitle').innerHTML = '🎉 滿分殊榮！全部題目皆回答正確！';
+        wrongListEl.innerHTML = `
+          <div style="text-align:center; padding: 20px; color: #34d399; font-weight:800; font-size:1.1rem;">
+            🏆 太強了！${sName} 同學完美掌握所有核心文法與文意字彙，榮獲 100 分滿分！
+          </div>
+        `;
+      } else {
+        document.getElementById('wrongSummaryTitle').innerHTML = `❌ 考生回答錯誤之題目診斷清單（共錯 ${wrongList.length} 題，扣 ${100 - totalScore} 分）`;
+        wrongList.forEach(item => {
+          const q = item.q;
+          const u = item.userAns;
+          const row = document.createElement('div');
+          row.className = 'wrong-item-row';
+
+          let ansDisplay = '';
+          if (q.type === 'spelling') {
+            ansDisplay = q.answer;
+          } else {
+            ansDisplay = `(${q.answer}) ${q.options[['A','B','C','D'].indexOf(q.answer)]}`;
+          }
+
+          const secName = q.sec === 1 ? '一、文意字彙' : (q.sec === 2 ? '二、字彙選擇' : '三、語法測驗');
+
+          row.innerHTML = `
+            <div class="w-title">${secName} 第 ${q.num} 題 [${q.points}分]</div>
+            <div style="color: #cbd5e1; margin-bottom: 6px; font-weight:500;">題目：${q.text}</div>
+            <div class="w-details">
+              <span class="user-bad">❌ 您的作答：${u ? u : '（未作答）'}</span>
+              <span class="correct-good">🎯 標準答案：${ansDisplay}</span>
+            </div>
+            <div class="w-tip"><b>【解析說明】</b>${q.explanation}</div>
+            <div class="w-tip" style="color:#fde047; margin-top:2px;"><b>【資優提點】</b>${q.eliteTip}</div>
+          `;
+          wrongListEl.appendChild(row);
+        });
+      }
+
+      // 展開成績看板並滑動至該處
+      const reportCard = document.getElementById('scoreReportCard');
+      reportCard.classList.add('show');
+      reportCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+      if (confirm("確定要重設整份考卷嗎？所有填寫與作答將被清空。")) {
+        userAnswers = {};
+        isGraded = false;
+        timerSeconds = 0;
+        document.getElementById('btnSubmitExam').style.display = 'flex';
+        document.getElementById('scoreReportCard').classList.remove('show');
+        renderAllSections();
+        updateProgress();
+        startTimer();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
